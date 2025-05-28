@@ -1,0 +1,26 @@
+{% extends "webclient/views/content-window.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container p-4">
+        <div class="row justify-content-center">
+            <div class="container game-mode-selection-window bg-body-tertiary rounded py-4 py-3 my-4 mx-2">
+                <div class="container"> 
+                    <h4 class="text-center">
+                        {% if request.data.args.type == "pvp" %}
+                            PvP
+                        {% elif request.data.args.type == "tournament" %}
+                            Tournament
+                        {% endif %}
+                        Game Matchmaking
+                    </h4>
+                </div>
+                <div class="d-grid gap-3 col-6 mx-auto">
+                    <div id="matchmakingAlertPlaceholder"></div>
+                    <button class="btn btn-success mt-2 py-3" type="button" onclick="gameModeManager.startGame('{{ request.data.args.type }}')">Enter Matchmaking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

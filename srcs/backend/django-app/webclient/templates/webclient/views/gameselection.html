@@ -1,0 +1,29 @@
+{% extends "webclient/views/content-window.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container p-4">
+        <div class="row justify-content-center">
+            <div class="container game-mode-selection-window bg-body-tertiary rounded py-4 py-3 my-4 mx-2">
+                <div class="container"> 
+                    <h4 class="text-center">Select Gamemode</h4>
+                </div>
+
+                <div class="d-grid gap-3 col-6 mx-auto">
+                    <button class="btn btn-primary mt-2" type="button" onclick="gameModeManager.selectMode('local')" onmouseover="gameModeManager.setInfo('local')">Local Game</button>
+                    <button class="btn btn-primary mt-2" type="button" onclick="gameModeManager.selectMode('pvp')" onmouseover="gameModeManager.setInfo('pvp')">PvP Matchmaking</button>
+                    <button class="btn btn-primary mt-2" type="button" onclick="gameModeManager.selectMode('tournament')" onmouseover="gameModeManager.setInfo('tournament')">Tournament Matchmaking</button>
+                </div>
+            </div>
+            <div class="container game-mode-info-window bg-body-tertiary rounded py-4 py-3 my-4 mx-2">
+                <div class="row align-items-center h-100">
+                    <div class="d-grid gap-2">
+                        <h4 class="text-center">Info</h4>
+                        <a id="game-mode-info-text"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+
+{% block content %}
+{% load static %}
+<div class="container text-center testBox1 ">
+	<div class="container d-flex offset-md display-4">
+		{% if user.is_authenticated %}
+			<div style="color: azure;">
+				<h1>Hey {{ user }}<br>Welcome Back to Pong Playground!</h1>
+    			<p>Ready to jump back into the action? Challenge your friends, crush the competition, and enjoy the game!</p>
+    			<p>Let's play Pong!</p>
+			</div>
+		{% else %}
+			<div style="color: azure;">
+				<h1>Welcome to Pong Playground!</h1>
+	        	<p>Welcome to Pong Playground, the ultimate destination for fans of the classic game Pong! Whether you're here to relive nostalgic memories or challenge your friends to a thrilling match, our website offers the perfect platform to experience the timeless excitement of Pong.</p>
+    	    	<p>To get started, simply create an account. Your account will not only give you access to the game but also allow you to track your scores, compete in tournaments, and connect with a vibrant community of Pong enthusiasts.</p>
+        		<p>Join us today and start playing Pong like never before! Get ready to sharpen your reflexes, hone your skills, and have a blast. Let's play Pong!</p>
+			</div>
+		{% endif %}
+	</div>
+	{% if user.is_authenticated %}
+		<div id="target" class="d-flex" visibility="hidden"></div>
+	{% endif %}
+</div>
+
+{% csrf_token %}
+
+{% endblock %}

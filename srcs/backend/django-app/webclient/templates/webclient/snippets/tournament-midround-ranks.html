@@ -1,0 +1,16 @@
+<div class="container text-center bg-body-tertiary rounded">
+	<div class="row row-cols-1 row-cols-lg-1 offcanvas-body rounded" style="max-height: 200px">
+		<table class="table mb-0 align-middle bg-body-tertiary rounded">
+		{% for stats in userstats %}
+			{% with nick=stats.stats.user.getNick %}
+			<tr>
+				<th scope="row">{{ forloop.counter }}</th>
+				<td class="d-flex justify-content-center align-items-center"><div></div><img src="{{ stats.stats.user.avatar.url }}" class="rounded player-profile-image-small mx-2" alt=""><div>{{ nick }}</div></td>
+				<td>Winrate: {{ stats.wr }}%</td>
+				<td>Overall Score: {{ stats.stats.score }}</td>
+			</tr>
+			{% endwith %}
+		{% endfor %}
+		</table>
+	</div>
+</div>

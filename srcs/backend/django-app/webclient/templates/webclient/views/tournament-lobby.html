@@ -1,0 +1,20 @@
+{% extends "webclient/views/content-window.html" %}
+{% load game_active %}
+
+{% block content %}
+<div class="container">
+	<div class="container bg-body-secondary rounded tournament-lobby-init-wait-window">
+		<div class="row pt-2">
+			<div class="col">
+				{% display_tournament_lobby_head %}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col py-2">
+				{% display_tournament_profiles %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

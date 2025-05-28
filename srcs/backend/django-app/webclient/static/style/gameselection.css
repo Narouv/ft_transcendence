@@ -1,0 +1,16 @@
+
+
+.game-mode-selection-window {
+    max-width: 500px;
+}
+
+.game-mode-info-window {
+    max-width: 300px;
+}
+
+.side-right{
+	background-color:rgb(255, 42, 42);
+}
+.side-left{
+	background-color:rgb(15, 125, 252);
+}

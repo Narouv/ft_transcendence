@@ -1,0 +1,44 @@
+{% extends "webclient/views/content-window.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container p-4">
+        <div class="row justify-content-center">
+            <div class="container login-form-window bg-body-tertiary rounded py-4 py-3 my-4 mx-2">
+                <form onsubmit="userHandler.makeLogin(); return false">
+                    <div class="container">
+                        <h4>Login with Credentials</h4>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" required>
+                        <label for="floatingInputUsername">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingInputPassword" placeholder="Password" required>
+                        <label for="floatingInputPassword">Password</label>
+                    </div>
+                    <div class="input-group has-validation">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="floating2FA" placeholder="2FA" oninput="this.value = this.value.replace(/[e\+\-]/gi, ''); if(this.value.length > 6){ this.value = this.value.slice(0,6); return false; }">
+                            <label for="floating2FA">2FA (Optional)</label>
+                        </div>
+                        <div class="my-0" id="login-user-feedback">
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary mt-2" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="container login-alt-window bg-body-tertiary rounded py-4 py-3 my-4 mx-2">
+                <div class="row align-items-center h-100">
+                    <div class="d-grid gap-5">
+                        <button class="btn btn-primary" type="button" onclick="viewManager.getPage('register')">Register Account</button>
+                        <button class="btn btn-secondary" type="button" onclick="api.oauthLogin()">Login with 42Intra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

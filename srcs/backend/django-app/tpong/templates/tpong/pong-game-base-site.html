@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	{% load static %}
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'tpong/pong-game.css'%}">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+		<div>
+			<p>FPS:</p>
+			<p id="bp-fps"></p>
+		</div>
+		<div class="game-canvas">
+			<div class="game-window">
+				<div class="paddle-left">
+					
+				</div>
+				<div class="paddle-right">
+					
+				</div>
+				<div class="pong-ball">
+
+				</div>
+			</div>
+		</div>
+		<!-- <div>
+			<p>Ball Pos:</p>
+			<p id="bp-pp"></p>
+		</div> -->
+		<script type='module' src="{% static 'tpong/pong-game.js' %}" async defer></script>
+	</body>
+</html>

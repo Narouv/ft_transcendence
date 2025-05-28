@@ -1,0 +1,74 @@
+
+<div class="container play-stats-window bg-body-secondary rounded pb-2 px-2">
+    <div class="container">
+        <h3 class="text-black text-center">Player Stats</h3>
+    </div>
+    <div class="container bg-light rounded">
+        {% for playerStat in playerStats  %}
+            <div class="row py-2">
+                <div class="col">
+                    <span class="text-black fw-bold">{{ playerStat.tag }}</span>
+                </div>
+                <div class="col-3">
+                    <span class="text-black">{{playerStat.value}}</span>
+                </div>
+            </div>
+        {% endfor %}
+        {% comment %} <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Total Matches Played:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Matches Won:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Matches Lost:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Match W/L Ratio:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Tournaments Played:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Tournaments Won:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <span class="text-black fw-bold">Tournament W/L Ratio:</span>
+            </div>
+            <div class="col-3">
+                <span class="text-black">2</span>
+            </div>
+        </div> {% endcomment %}
+    </div>
+</div>

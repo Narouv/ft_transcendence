@@ -1,0 +1,51 @@
+
+.game-canvas{
+	background-color:rgb(56, 55, 55);
+	aspect-ratio: 3 / 2;
+	width: 100%;
+	position: relative;
+}
+
+.game-window{
+	background-color:rgba(218, 152, 152, 0);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.pong-ball{
+	border-radius: 50%;
+	/*background-image: url("https://p7.hiclipart.com/preview/353/830/422/hd-dvd-logo-blu-ray-disc-dvd.jpg");*/
+	background-color:rgb(255, 255, 255);
+	position: absolute;
+	background-size: contain;
+}
+
+.paddle-left{
+	background-color:rgb(15, 125, 252);
+	width: 10px;
+	height: 50px;
+	/*border: solid 1px black;*/
+	position: absolute
+}
+
+.paddle-right{
+	background-color:rgb(255, 42, 42);
+	width: 10px;
+	height: 50px;
+	/*border: solid 1px black;*/
+	position: absolute;
+}
+
+.overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	background: #00993800;
+	display: block;
+}

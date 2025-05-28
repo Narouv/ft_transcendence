@@ -1,0 +1,12 @@
+
+.profile-settings-window{
+    max-width: 500px;
+
+}
+
+.qr-2fa-image{
+    max-width: 400px;
+    max-height: 400px;
+    min-width: 256px;
+    min-height: 256px;
+}

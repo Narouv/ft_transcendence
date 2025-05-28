@@ -1,0 +1,56 @@
+{% extends "webclient/views/content-window.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container bg-body-tertiary rounded py-3 py-3 my-4 mx-2">
+                <div class="d-flex mb-3">
+                    <div class="me-auto p-2">
+                        <h5 class="text-black" id="pingTxt">Ping: -</h5>
+                    </div>
+                    <div class="p-2">
+                        <button type="button" class="btn btn-primary" onclick="gameManager.leaveLobby()">Leave Game</button>
+                    </div>
+                </div>
+                <div class="container py-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="container rounded side-left bg-opacity-50 text-center py-2">
+                                <h4 class="text-white my-0" id="playerNameLeft">Unknown</h4>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex h-100 w-100 justify-content-center">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <div class="row">
+                                        <div class="col d-flex justify-content-end">
+                                            <h4 class="text-black my-0" id="playerScoreLeft">0</h4>
+                                        </div>
+                                        <div class="col-1 d-flex justify-content-center">
+                                            <h4 class="text-black my-0">:</h4>
+                                        </div>
+                                        <div class="col d-flex justify-content-start">
+                                            <h4 class="text-black my-0" id="playerScoreRight">0</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container rounded side-right bg-opacity-50 text-center py-2">
+                                <h4 class="text-white my-0" id="playerNameRight">Unknown</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="target" class="" style="width: 100%;"></div>
+                {% comment %} <div class="d-flex justify-content-end mt-2 mb-0">
+                    <button type="button" class="btn btn-primary">Fullscreen</button>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

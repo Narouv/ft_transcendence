@@ -1,0 +1,26 @@
+<div class="container text-center bg-body-tertiary rounded ">
+	<div class="row row-cols-2 row-cols-lg-4">
+		{% for user in users %}
+			<div class="col m-0">
+				<div class="p-3">
+					<div class="tournament-lobby-init-wait-player-bubble rounded p-3">
+						<div class="row justify-content-center">
+							<div class="col-auto">
+								<div class="player-profile-image-col">
+									<img src="{{ user.avatar.url }}" class="rounded float-start player-profile-image " alt="">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col m-0">
+								<div class="text-black text-truncate">
+									{{ user.getNick }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

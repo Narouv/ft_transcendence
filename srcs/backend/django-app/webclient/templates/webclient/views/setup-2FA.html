@@ -1,0 +1,53 @@
+{% extends "webclient/views/content-window.html" %}
+{% load profile_tags %}
+
+{% block content %}
+<div class="container bg-body-secondary rounded profile-settings-window pb-2">
+    <div class="row justify-content-center my-3">
+        <div class="col-auto me-auto">
+            <h4 class="text-black" >Setup 2FA</h4>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" type="button" onclick="history.back()">Back</button>
+        </div>
+
+    </div>
+    <div class="row justify-content-center my-3">
+        <div class="col-3 d-flex align-items-center justify-content-center">
+            <div class="qr-2fa-image">
+                <div class="container m-0 p-0">
+                   <div id="2fa-qr"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <label for="avatarImgUpload" class="form-label m-0 ">Confirm 2FA Code</label>
+                        <div class="input-group has-validation">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="floating2FA" placeholder="2FA" oninput="this.value = this.value.replace(/[e\+\-]/gi, ''); if(this.value.length > 6){ this.value = this.value.slice(0,6); return false; }">
+                                <label for="floating2FA">Current 2FA Code</label>
+                            </div>
+                            <div class="my-0 valid-feedback" id="2fa-setup-feedback">
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row mt-2">
+                    <div class="col">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="button" onclick="profileSettings.verify2FA()">Verify & Activate 2FA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

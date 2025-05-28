@@ -1,0 +1,35 @@
+<div class="container">
+	<h4 class="text-black text-center">Tournament Lobby</h4>
+	<div class="row">
+		<div class="col">
+			<div class="bg-body-tertiary rounded py-1">
+				<div class="row justify-content-center">
+					<div class="col-auto">
+						<span class="text-black">Tournament</span>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-auto">
+						>current players ({{ lobbySize }})
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="d-flex flex-column justify-content-center h-100">
+				<div class="col-auto">
+					Waiting for the round to finish
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="d-flex flex-column justify-content-center h-100">
+				<div class="row justify-content-end">
+					<div class="col-auto">
+						<button type="button" class="btn btn-primary" onclick="gameManager.leaveLobby()">Leave Lobby</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

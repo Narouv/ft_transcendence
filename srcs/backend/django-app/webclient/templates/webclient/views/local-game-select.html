@@ -1,0 +1,38 @@
+{% extends "webclient/views/content-window.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container p-4">
+        <div class="row justify-content-center">
+            <div class="container game-mode-selection-window bg-body-tertiary rounded py-4 py-3 my-4 mx-2">
+                <div class="container"> 
+                    <h4 class="text-center">Local Game</h4>
+                </div>
+                <div class="container">
+                    <div class="row mt-3 mb-5">
+                        <div class="col">
+                            <div class="container rounded side-left bg-opacity-50 text-center py-2">
+                                <h4 class="text-white my-0">Left</h3>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="d-flex flex-column h-100 justify-content-center">
+                                <h5 class="text-black text-center md-1">vs</h5>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="container rounded side-right bg-opacity-50 text-center py-2">
+                                <h4 class="text-white my-0">Right</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-3 col-6 mx-auto">
+                    <div id="matchmakingAlertPlaceholder"></div>
+                    <button class="btn btn-success mt-2" type="button" onclick="gameModeManager.startGame('local')">Start Local Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

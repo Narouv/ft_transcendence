@@ -1,0 +1,126 @@
+{% load game_result %}
+<div class="container"> 
+    <h3 class="text-center text-dark">
+        {% if match.type == "tournament" %}
+            Tournament
+        {% else %}
+            Match
+        {% endif %}
+        Results</h3>
+</div>
+
+{% if match.type != "tournament" %}
+<div class="container">
+    <div class="row mt-3 mb-5">
+        <div class="col">
+            <div class="container rounded side-left bg-opacity-50 text-center py-2">
+                <h4 class="text-white my-0" id="resultNameLeft">
+                    {{ playerLeft.playerName }}
+                </h3>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="d-flex flex-column h-100 justify-content-center">
+                <h5 class="text-black text-center md-1">vs</h5>
+            </div>
+        </div>
+        <div class="col">
+            <div class="container rounded side-right bg-opacity-50 text-center py-2">
+                <h4 class="text-white my-0"  id="resultNameRight">
+                    {{ playerRight.playerName }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container"> 
+    <h4 class="text-center">Winner</h4>
+</div>
+<div class="container rounded bg-opacity-50 text-center py-2 w-75 side-{{ winner.side }}">
+    <h4 class="text-white my-0" id="resultNameWinner">{{ winner.playerName }}</h3>
+</div>
+{% else %}
+<div class="container"> 
+    <h4 class="text-center text-dark">Winner</h4>
+</div>
+<div class="container rounded bg-opacity-50 text-center py-2 w-75 first-place-badge-clr">
+    <div class="row flex-nowrap">
+        <div class="col-1">
+            <span class="text-dark align-middle fw-bold">#1</span>
+        </div> 
+        <div class="col me-auto">
+            <span class="text-dark align-middle">
+                <h4 class="m-0 p-0">{{ winner.playerName }}</h4>
+            </span>
+        </div>
+        <div class="col-auto flex-column justify-content-center">
+            <span class="text-dark align-middle fw-bold">Score: {{ winner.score }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row my-3 flex-nowrap">
+        <div class="col">
+            <div class="container rounded second-place-badge-clr text-center py-2">
+                <div class="row flex-nowrap">
+                    <div class="col-1">
+                        <span class="text-dark align-middle">#2</span>
+                    </div> 
+                    <div class="col-auto me-auto">
+                        <span class="text-dark align-middle">
+                            {{ topPlayer.0.playerName }}
+                        </span>
+                    </div>
+                    <div class="col-auto flex-column justify-content-center">
+                        <span class="text-dark align-middle">Score: {{ topPlayer.0.score }}</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="col">
+            <div class="container rounded third-place-badge-clr text-center py-2">
+                <div class="row flex-nowrap">
+                    <div class="col-1">
+                        <span class="text-dark align-middle">#3</span>
+                    </div> 
+                    <div class="col-auto me-auto">
+                        <span class="text-dark align-middle">
+                            {{ topPlayer.1.playerName }}
+                        </span>
+                    </div>
+                    <div class="col-auto flex-column justify-content-center">
+                        <span class="text-dark align-middle">Score: {{ topPlayer.1.score }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-2 px-2">
+        {% for player in players %}
+            <div class="col px-1 my-1">
+                <div class="container rounded regular-place-badge-clr text-center py-2">
+                    <div class="row flex-nowrap">
+                        <div class="col-1">
+                            <span class="text-dark align-middle">#{{ forloop.counter|add:"3" }}</span>
+                        </div> 
+                        <div class="col-4 me-auto">
+                            <span class="text-dark align-middle text-truncate">
+                                {{ player.playerName }}
+                            </span>
+                        </div>
+                        <div class="col-auto flex-column justify-content-center">
+                            <span class="text-dark align-middle text-nowrap">Score: {{ topPlayer.1.score }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+

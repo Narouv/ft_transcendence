@@ -1,0 +1,84 @@
+/* navbar style settings */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#MainNavbar {
+    padding: 0;
+}
+
+#MainNavbar-ContentContainer {
+    justify-content: center;
+}
+
+#MainNavbar-Itemlist {
+    box-sizing: content-box;
+    width: 80%;
+    background-color: indigo;
+    border-bottom-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    padding: 0;
+    .MainNav-Link {
+        color: #c8c8c8;
+    }
+    /* hover when disabled is present somewhere in an item */
+    .MainNav-Item:has(.disabled):hover {
+        .MainNav-Link {
+            transition: transform .5s ease-in-out;
+            transform: scale(0.01);
+        }
+    }
+    .MainNav-Item:not(:has(.disabled)):hover {
+        transition: color .3s ease-in-out,background-color .3s ease-in-out;
+        /* background-color: #0000ff; */
+        .MainNav-Link {
+            transform: scale(1.25);
+        }
+        .MainNav-Itemtext {
+            color: white;
+        }
+    }
+}
+
+.MainNav-Item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    color: white;
+    border-bottom-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    padding: 0.8vw;
+    margin-bottom: 1vw;
+}
+
+.MainNav-Item:has(.disabled) {
+    cursor: not-allowed;
+    .MainNav-Itemtext {
+        color: #505050;
+    }
+}
+
+.MainNav-Link {
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 800;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform .75s ease-in-out;
+}
+
+.MainNav-Icons {
+    width: 2.3vw;
+}
+
+.MainNav-Itemtext {
+    margin: 0;
+    font-size: 1.7vw;
+    padding-left: 8px;
+}

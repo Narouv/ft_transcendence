@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'tpong/pong-game.css'%}">
+<!-- <link as='script' href="{% static 'tpong/pong-game.js'%}">
+<script type='module' src="{% static 'tpong/pong-game.js' %}" ></script>
+-->
+<script>
+	
+	
+	ft_log('Hello')
+	fetch("{% static 'tpong/pong-game.js' %}").then(response => response.text()).then(script => {
+		var scriptObj = document.createElement('script')
+		scriptObj.textContext = script
+		document.body.appendChild(scriptObj);
+	})
+
+</script>
+<div class="game-canvas">
+	<div class="game-window">
+		<div class="paddle-left"></div>
+		<div class="paddle-right"></div>
+		<div class="pong-ball"></div>
+	</div>
+</div>

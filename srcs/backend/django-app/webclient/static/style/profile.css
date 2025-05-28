@@ -1,0 +1,54 @@
+
+.friend-list-window {
+    min-width: 235px;
+    /* max-width: 25%; */
+    min-height: 500px;
+    /* max-height: 500px; */
+    /*margin-right: auto;
+    margin-left: auto;*/
+}
+
+.friend-list-list {
+    /* max-height: 350px; */
+    min-height: 296px;
+}
+
+.match-history-window {
+    min-width: 500px;
+    /* max-width: 500px; */
+    min-height: 500px;
+}
+.clickable {
+    cursor: pointer;
+}
+
+.match-place-holder{
+    min-height: 408px;
+}
+
+.play-stats-window{
+    min-width: 220px;
+}
+
+.player-profile-window{
+    /* max-height: 169px; */
+    min-width: 300px;
+}
+
+.player-profile-image{
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.player-profile-image-small{
+    max-width: 50px;
+    max-height: 50px;
+	min-width: 50px;
+    min-height: 50px;
+}
+
+.player-profile-image-col{
+    min-width: 100px;
+}

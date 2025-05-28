@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-md mx-2" data-bs-theme="dark" id="MainNavbar">
+	<div class="container-fluid" id="MainNavbar-ContentContainer">
+		<ul class="navbar-nav mx-auto interactive-navbar" id="MainNavbar-Itemlist">
+			{% if user.is_authenticated %}
+			<li class="nav-item MainNav-Item nav-link" onclick="viewManager.getPage('home')">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/homeicon.png">
+					<p class="MainNav-Itemtext">Home</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link" onclick="viewManager.getPage('profile')">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/missingprofilepictureicon2.png">
+					<p class="MainNav-Itemtext">Profile</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link" onclick="viewManager.getPage('gameselection')">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/playicon4.png">
+					<p class="MainNav-Itemtext">Play</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link" onclick="viewManager.getPage('settings')">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/settingsicon4.png">
+					<p class="MainNav-Itemtext">Settings</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link" onclick="api.logout()">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/logouticon2.png">
+					<p class="MainNav-Itemtext">Logout</p>
+				</a>
+			</li>
+			{% else %}
+			<li class="nav-item MainNav-Item nav-link" onclick="viewManager.getPage('home')">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/homeicon.png">
+					<p class="MainNav-Itemtext">Home</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link">
+				<a class="center-flex MainNav-Link disabled" aria-disabled="true">
+					<img class="MainNav-Icons" src="/static/icons/missingprofilepictureicon2.png">
+					<p class="MainNav-Itemtext">Profile</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link">
+				<a class="center-flex MainNav-Link disabled" aria-disabled="true">
+					<img class="MainNav-Icons" src="/static/icons/playicon4.png">
+					<p class="MainNav-Itemtext">Play</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link">
+				<a class="center-flex MainNav-Link disabled" aria-disabled="true">
+					<img class="MainNav-Icons" src="/static/icons/settingsicon4.png">
+					<p class="MainNav-Itemtext">Settings</p>
+				</a>
+			</li>
+			<li class="nav-item MainNav-Item nav-link" onclick="viewManager.getPage('login')">
+				<a class="center-flex MainNav-Link">
+					<img class="MainNav-Icons" src="/static/icons/crackpasswordicon.png">
+					<p class="MainNav-Itemtext">Login</p>
+				</a>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>

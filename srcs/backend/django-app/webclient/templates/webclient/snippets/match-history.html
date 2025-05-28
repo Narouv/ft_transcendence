@@ -1,0 +1,85 @@
+{% load profile_tags %}
+<div class="container rounded bg-body-secondary match-history-window d-flex flex-column px-1 py-1">
+    <div class="container">
+        <h3 class="text-center text-black">Match History</h3>
+    </div>
+    <div class="container-fluid rounded m-0 p-0 match-place-holder bg-light">
+        <ol class="list-group list-group-num">
+            {% if matches.end_index == 0 %}
+                <h5 class="text-center mt-4">Nothing to show yet...</h5>
+            {% endif %}
+            {% for match in matches %}
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="container-fluid">
+                        {% with match_score=match.get_result %}
+                            <div class="row">
+                                <div class="col-3">
+                                    {% if match.type != "tournament" %}
+                                        <div class="fw-bold">{{ match.get_type_display }} Game</div>
+                                    {% else %}
+                                        <div class="fw-bold">{{ match.get_type_display }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-4 text-center">
+                                    {{ match.created_at|format_date_time }}
+                                </div>
+                                <div class="col-5 text-center">
+                                    {% if match.type == "local" %}
+                                        <div class="fw-bold">{{ match_score.left.score }}:{{ match_score.right.score }}</div>
+                                    {% elif match.type == "pvp" %}
+                                        <div class="row">
+                                            <div class="col m-0 p-0 text-truncate">
+                                                {{ match_score.left.playerName }}
+                                            </div>
+                                            <div class="col-2 m-0 p-0">
+                                                <div class="fw-bold">{{ match_score.left.score }}:{{ match_score.right.score }}</div>
+                                            </div>
+                                            <div class="col m-0 p-0 text-truncate">
+                                                {{ match_score.right.playerName }}
+                                            </div>
+                                        </div>
+                                    {% elif match.type == "tournament" %}
+										{% for result in match_score.result %}
+											{% if result.user == request.user %}
+												<span class="badge text-bg-primary rounded-pill">#{{ forloop.counter }}</span>
+											{% endif %}
+										{% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endwith %}
+                    </div>
+                    {% if match.type == "tournament" %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="d-flex py-2 px-0 justify-content-center">
+        <nav class="">
+            <ul class="pagination mb-0">
+                {% if matches.has_previous  %}
+                    <li class="page-item clickable"><a class="page-link" onclick="viewManager.getPage('profile', {matchHistoryPage: 1})">First</a></li>
+                    <li class="page-item clickable"><a class="page-link" onclick="viewManager.getPage('profile', {matchHistoryPage: {{ matches.previous_page_number }}})">Prev.</a></li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link" >First</a></li>
+                    <li class="page-item disabled"><a class="page-link" >Prev.</a></li>
+                {% endif %}
+                {% for i in matches.paginator.num_pages|times:"7" %}
+                    {% if forloop.counter == matches.number %}
+                        <li class="page-item active"><a class="page-link" onclick="viewManager.getPage('profile', {matchHistoryPage: {{ forloop.counter  }}})">{{ forloop.counter }}</a></li>
+                    {% else %}
+                        <li class="page-item clickable"><a class="page-link" onclick="viewManager.getPage('profile', {matchHistoryPage: {{ forloop.counter  }}})">{{ forloop.counter }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if matches.has_next %}
+                    <li class="page-item clickable"><a class="page-link" onclick="viewManager.getPage('profile', {matchHistoryPage: {{ matches.next_page_number  }}})">Next</a></li>
+                    <li class="page-item clickable"><a class="page-link" onclick="viewManager.getPage('profile', {matchHistoryPage: {{ matches.paginator.num_pages }}})">Last</a></li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link">Next</a></li>
+                    <li class="page-item disabled"><a class="page-link">Last</a></li>
+                {% endif %}
+            </ul>
+          </nav>
+    </div>
+</div>

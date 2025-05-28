@@ -1,0 +1,96 @@
+
+{% load static %}
+<div class="container bg-body-secondary rounded profile-settings-window px-2 pb-2">
+    <div class="col">
+        <div class="container">
+            <h4 class="text-black text-center">Profile Settings</h4>
+        </div>
+        <div class="container">
+            <div class="row mb-2">
+                <div class="rounded bg-light py-2">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInputUsername" placeholder="Username" value="{{request.user.username}}" disabled readonly>
+                        <label for="floatingInputUsername">Username</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInputEmail" placeholder="Email" value="{{request.user.email}}" disabled readonly>
+                        <label for="floatingInputEmail">Email</label>
+                    </div>
+                    
+                    <div class="input-group has-validation px-0">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInputPlayerName" placeholder="Player Name" value="{{request.user.nickname}}">
+                            <label for="floatingInputPlayerName">Player Name</label>
+                        </div>
+                        <div class="invalid-feedback" id="invalidPlayerNameFeedback">
+                            
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary mt-2" onclick="profileSettings.setPlayerName()">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="rounded bg-light py-2">
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center justify-content-center">
+                            <img src="{{ request.user.avatar.url }}" class="player-profile-image img-thumbnail">
+                        </div>
+                        <div class="col">
+                            <div class="row pe-2">
+                                <label for="avatarImgUpload" class="form-label m-0 ">Select New Avatar</label>
+                                <div class="input-group has-validation px-0">
+                                    <input class="form-control" type="file" id="avatarImgUpload" accept="image/png, image/jpeg" >
+                                    <div class="invalid-feedback" id="invalidFileFeedback">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2 pe-2">
+                                <button class="btn btn-primary" type="button" onclick="profileSettings.setPlayerAvatar()">Upload New Avatar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="rounded bg-light">
+                    <div class="my-2">
+                        <span class="text-black fw-bold">
+                            Reset Password
+                        </span>
+                        <form onsubmit="event.preventDefault(); profileSettings.resetPassword()">
+                            <div class="has-validation">
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="floatingInputPassword" placeholder="Password" required>
+                                    <label for="floatingInputPassword">Password</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingInputPasswordRepeat" placeholder="Password" required>
+                                    <label for="floatingInputPasswordRepeat">Repeat Password</label>
+                                </div>
+                                <div class="my-0" id="resetPasswordFeedback">
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary mt-2" type="submit">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-grid gap-2">
+                    {% if twoFA %}
+                        <button class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#disable2FAModal">Disable 2FA</button>
+                    {% else %}
+                        <button class="btn btn-success mt-2" onclick="profileSettings.toggle2FA(false)">Enable 2FA</button>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

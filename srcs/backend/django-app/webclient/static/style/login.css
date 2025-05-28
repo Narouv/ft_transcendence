@@ -1,0 +1,14 @@
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.login-form-window {
+    max-width: 500px;
+}
+
+.login-alt-window {
+    max-width: 200px;
+}
