@@ -1,4 +1,4 @@
-import { api } from "/static/api/js/request.js"
+import { api } from "/static/js/request.js"
 
 function addScript( src, type='module', onload=null) {
 	return new Promise((resolve) => {

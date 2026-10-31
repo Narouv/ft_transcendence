@@ -1,4 +1,4 @@
-import { api } from "/static/api/js/request.js";
+import { api } from "/static/js/request.js";
 
 class FriendManager
 {
